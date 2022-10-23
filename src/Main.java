@@ -3,11 +3,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
     public static void main(String[] args) {
-        Exercise exercise1 = new Exercise(9, 3);
-        Exercise exercise2 = new Exercise(3, 9);
-        boolean equals = exercise1.equals(exercise2);
-        int i = exercise1.hashCode();
-        int i1 = exercise2.hashCode();
         generateExercises(15);
         System.out.println("----------");
         Map<Integer, Passport> passportMap = new HashMap<>();
