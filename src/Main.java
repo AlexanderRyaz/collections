@@ -3,23 +3,12 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
     public static void main(String[] args) {
-        generateExercises(15);
-        System.out.println("----------");
-        Map<Integer, Passport> passportMap = new HashMap<>();
-        Passport passport1 = new Passport(123456, "саша", "петров", "иванович", new Date());
-        Passport passport2 = new Passport(254789, "федя", "сидоров", null, new Date());
-        Passport passport3 = new Passport(879658, "рома", "соколов", "орлович", new Date());
-        addPassport(passport1, passportMap);
-        addPassport(passport2, passportMap);
-        addPassport(passport3, passportMap);
-        printMap(passportMap);
-        System.out.println("-------");
-        Passport passport4 = new Passport(879658, "гриша", "соколов", "орлович", new Date());
-        addPassport(passport4, passportMap);
-        printMap(passportMap);
-        System.out.println("-------");
-        System.out.println(getPassportByNumber(123456, passportMap));
-        System.out.println(getPassportByNumber(925879, passportMap));
+        Map<String,Integer>map=new HashMap<>();
+        map.put("str1",2);
+       myMap("str2",1,map);
+        myMap("str1",5,map);
+        myMap("str1",5,map);
+
     }
 
     private static void printMap(Map<Integer, Passport> passportMap) {
@@ -50,5 +39,13 @@ public class Main {
 
     public static Passport getPassportByNumber(int number, Map<Integer, Passport> passportMap) {
         return passportMap.get(number);
+    }
+
+    public static void myMap(String key, int value, Map<String, Integer> map) {
+        if (map.containsKey(key) && map.get(key) == value) {
+            throw new RuntimeException("ключ уже есть");
+        }
+        map.put(key, value);
+        System.out.println("добавили: " + key + " " + value);
     }
 }
