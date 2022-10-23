@@ -3,13 +3,12 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
     public static void main(String[] args) {
-        PhoneList phoneList = new PhoneList();
-        phoneList.addNumber("Михеев Сергей", 89268597896L);
-        phoneList.addNumber("Иванов Сергей", 89268599896L);
-        phoneList.addNumber("Петров Сергей", 89278597896L);
-        phoneList.addNumber("Сидоров Сергей", 89260597896L);
-        phoneList.addNumber("Коротков Сергей", 89264597896L);
-        phoneList.printNumber();
+        Map<String,Integer>map=new HashMap<>();
+        map.put("str1",2);
+       myMap("str2",1,map);
+        myMap("str1",5,map);
+        myMap("str1",5,map);
+
     }
 
     private static void printMap(Map<Integer, Passport> passportMap) {
@@ -40,5 +39,13 @@ public class Main {
 
     public static Passport getPassportByNumber(int number, Map<Integer, Passport> passportMap) {
         return passportMap.get(number);
+    }
+
+    public static void myMap(String key, int value, Map<String, Integer> map) {
+        if (map.containsKey(key) && map.get(key) == value) {
+            throw new RuntimeException("ключ уже есть");
+        }
+        map.put(key, value);
+        System.out.println("добавили: " + key + " " + value);
     }
 }
