@@ -3,23 +3,13 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
     public static void main(String[] args) {
-        generateExercises(15);
-        System.out.println("----------");
-        Map<Integer, Passport> passportMap = new HashMap<>();
-        Passport passport1 = new Passport(123456, "саша", "петров", "иванович", new Date());
-        Passport passport2 = new Passport(254789, "федя", "сидоров", null, new Date());
-        Passport passport3 = new Passport(879658, "рома", "соколов", "орлович", new Date());
-        addPassport(passport1, passportMap);
-        addPassport(passport2, passportMap);
-        addPassport(passport3, passportMap);
-        printMap(passportMap);
-        System.out.println("-------");
-        Passport passport4 = new Passport(879658, "гриша", "соколов", "орлович", new Date());
-        addPassport(passport4, passportMap);
-        printMap(passportMap);
-        System.out.println("-------");
-        System.out.println(getPassportByNumber(123456, passportMap));
-        System.out.println(getPassportByNumber(925879, passportMap));
+        PhoneList phoneList = new PhoneList();
+        phoneList.addNumber("Михеев Сергей", 89268597896L);
+        phoneList.addNumber("Иванов Сергей", 89268599896L);
+        phoneList.addNumber("Петров Сергей", 89278597896L);
+        phoneList.addNumber("Сидоров Сергей", 89260597896L);
+        phoneList.addNumber("Коротков Сергей", 89264597896L);
+        phoneList.printNumber();
     }
 
     private static void printMap(Map<Integer, Passport> passportMap) {
